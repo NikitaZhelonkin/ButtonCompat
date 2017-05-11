@@ -3,9 +3,9 @@
 
     <declare-styleable name="ButtonCompat">
         <attr name="foreground" format="reference"/>
-        <attr name="compat_elevation" format="dimension"/>
-        <attr name="compat_elevation_radius" format="float"/>
-        <attr name="compat_elevation_inset" format="float"/>
+        <attr name="compatElevation" format="dimension"/>
+        <attr name="compatElevationRadius" format="dimension"/>
+        <attr name="compatElevationInset" format="dimension"/>
     </declare-styleable>
 
 

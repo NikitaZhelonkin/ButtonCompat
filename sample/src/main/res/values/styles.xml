@@ -9,10 +9,11 @@
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
     </style>
 
-    <style name="Button">
+    <style name="Button" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_bg</item>
+        <item name="backgroundTint">?colorButtonNormal</item>
         <item name="foreground">@drawable/button_fg</item>
-        <item name="backgroundTint">@color/colorButtonNormal</item>
-        <item name="android:textColor">@android:color/white</item>
     </style>
+
+
 </resources>

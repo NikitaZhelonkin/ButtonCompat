@@ -27,4 +27,6 @@ abstract class ButtonCompatImpl {
     abstract void onDrawOver(Canvas canvas);
 
     abstract void drawableStateChanged() ;
+
+    abstract void onSizeChanged();
 }

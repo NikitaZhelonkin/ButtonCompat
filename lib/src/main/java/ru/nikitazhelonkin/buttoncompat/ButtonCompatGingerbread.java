@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -17,6 +16,10 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
     private Drawable mForeground;
 
     private ShadowDrawable mShadowDrawable;
+
+    private int mElevation;
+    private int mRadius;
+    private float mInset;
 
     public ButtonCompatGingerbread(View view) {
         super(view);
@@ -30,18 +33,13 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
         TypedArray a = getView().getContext().obtainStyledAttributes(attrs, R.styleable.ButtonCompat);
 
 
-        int elevation = a.getDimensionPixelSize(R.styleable.ButtonCompat_compat_elevation,
+        mElevation = a.getDimensionPixelSize(R.styleable.ButtonCompat_compatElevation,
                 context.getResources().getDimensionPixelSize(R.dimen.button_compat_default_elevation));
-        int radius = a.getDimensionPixelSize(R.styleable.ButtonCompat_compat_elevation_radius,
+        mRadius = a.getDimensionPixelSize(R.styleable.ButtonCompat_compatElevationRadius,
                 context.getResources().getDimensionPixelSize(R.dimen.button_compat_corner_material));
-        float inset = a.getDimensionPixelSize(R.styleable.ButtonCompat_compat_elevation_inset,
+        mInset = a.getDimensionPixelSize(R.styleable.ButtonCompat_compatElevationInset,
                 context.getResources().getDimensionPixelSize(R.dimen.button_compat_inset_horizontal_material));
 
-        mShadowDrawable = new ShadowDrawable(context.getResources(),
-                inset,
-                radius,
-                elevation,
-                elevation);
         final Drawable d = a.getDrawable(R.styleable.ButtonCompat_foreground);
         if (d != null) {
             setForeground(d);
@@ -70,14 +68,14 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
 
     @Override
     void onDrawBehind(Canvas canvas) {
-        mShadowDrawable.setBounds(0, 0, getView().getWidth(), getView().getHeight());
-        mShadowDrawable.draw(canvas);
+        if (mShadowDrawable != null) {
+            mShadowDrawable.draw(canvas);
+        }
     }
 
     @Override
     void onDrawOver(Canvas canvas) {
         if (mForeground != null) {
-            mForeground.setBounds(0, 0, getView().getWidth(), getView().getHeight());
             mForeground.draw(canvas);
         }
     }
@@ -87,6 +85,20 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
     void drawableStateChanged() {
         if (mForeground != null && mForeground.isStateful()) {
             mForeground.setState(getView().getDrawableState());
+        }
+    }
+
+    @Override
+    void onSizeChanged() {
+        mShadowDrawable = new ShadowDrawable(getView().getContext().getResources(),
+                mInset,
+                mRadius,
+                mElevation,
+                mElevation);
+        mShadowDrawable.setBounds(0, 0, getView().getWidth(), getView().getHeight());
+
+        if (mForeground != null) {
+            mForeground.setBounds(0, 0, getView().getWidth(), getView().getHeight());
         }
     }
 }

@@ -33,4 +33,9 @@ class ButtonCompatLollipop extends ButtonCompatImpl {
     void drawableStateChanged() {
         //do nothing
     }
+
+    @Override
+    void onSizeChanged() {
+        //do nothing
+    }
 }

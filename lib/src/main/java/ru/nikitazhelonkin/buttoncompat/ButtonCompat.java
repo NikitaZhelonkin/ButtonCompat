@@ -5,11 +5,13 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.FrameLayout;
 
 /**
  * Created by nikita on 08.02.17.
  */
-
+//TODO enter/exit fade duration
 public class ButtonCompat extends AppCompatButton {
 
     private ButtonCompatImpl mImpl;
@@ -54,10 +56,17 @@ public class ButtonCompat extends AppCompatButton {
     }
 
     @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        getImpl().onSizeChanged();
+    }
+
+    @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
         getImpl().drawableStateChanged();
     }
+
 
     private ButtonCompatImpl createImpl() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

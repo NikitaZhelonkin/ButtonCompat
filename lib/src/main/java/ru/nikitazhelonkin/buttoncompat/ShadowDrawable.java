@@ -33,6 +33,8 @@ class ShadowDrawable extends Drawable {
 
     final RectF mCardBounds;
 
+    float mDesiredCornerRadius;
+
     float mCornerRadius;
 
     Path mCornerShadowPath;
@@ -70,7 +72,7 @@ class ShadowDrawable extends Drawable {
         mInsetShadow = resources.getDimensionPixelSize(R.dimen.button_compat_inset_shadow);
         mCornerShadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
         mCornerShadowPaint.setStyle(Paint.Style.FILL);
-        mCornerRadius = (int) (radius);
+        mDesiredCornerRadius = (int) (radius);
         mCardBounds = new RectF();
         mEdgeShadowPaint = new Paint(mCornerShadowPaint);
         mEdgeShadowPaint.setAntiAlias(false);
@@ -241,7 +243,10 @@ class ShadowDrawable extends Drawable {
         final float horizontalOffset = mInset;
         mCardBounds.set(bounds.left + horizontalOffset, bounds.top + verticalInset,
                 bounds.right - horizontalOffset, bounds.bottom - verticalInset);
+        mCornerRadius = Math.min(mDesiredCornerRadius, mCardBounds.height() / 2 - mInsetShadow);
+
         buildShadowCorners();
+
     }
 
 }
