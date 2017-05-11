@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ru.nikitazhelonkin.sample.MainActivity">
+
+    <ru.nikitazhelonkin.buttoncompat.ButtonCompat
+        style="@style/Button"
+        android:id="@+id/button_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ru.nikitazhelonkin.ButtonCompat"
+        android:layout_margin="10dp"/>
+
+    <android.support.v7.widget.AppCompatButton
+        style="@style/Button"
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:text="android.support.AppCompatButton"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
+
+</LinearLayout>

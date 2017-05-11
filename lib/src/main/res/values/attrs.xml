@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ButtonCompat">
+        <attr name="foreground" format="reference"/>
+        <attr name="compat_elevation" format="dimension"/>
+        <attr name="compat_elevation_radius" format="float"/>
+        <attr name="compat_elevation_inset" format="float"/>
+    </declare-styleable>
+
+
+</resources>

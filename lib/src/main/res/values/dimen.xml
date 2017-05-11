@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_compat_inset_shadow">1dp</dimen>
+    <dimen name="button_compat_inset_horizontal_material">6dp</dimen>
+    <dimen name="button_compat_inset_vertical_material">6dp</dimen>
+    <dimen name="button_compat_corner_material">2dp</dimen>
+    <dimen name="button_compat_padding_horizontal_material">8dp</dimen>
+    <dimen name="button_compat_padding_vertical_material">4dp</dimen>
+    <dimen name="button_compat_default_elevation">2dp</dimen>
+</resources>
