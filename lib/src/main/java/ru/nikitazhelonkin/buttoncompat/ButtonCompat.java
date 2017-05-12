@@ -38,12 +38,12 @@ public class ButtonCompat extends AppCompatButton {
     public void draw(Canvas canvas) {
         getImpl().onDrawBehind(canvas);
         super.draw(canvas);
-        getImpl().onDrawOver(canvas);
 
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        getImpl().onDrawOver(canvas);
         super.onDraw(canvas);
     }
 
