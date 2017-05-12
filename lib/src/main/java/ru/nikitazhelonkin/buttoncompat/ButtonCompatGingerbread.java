@@ -81,10 +81,18 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
         }
     }
 
+    @Override
+    boolean verifyDrawable(Drawable drawable) {
+        return drawable==mForeground;
+    }
+
+    @Override
+    void jumpDrawablesToCurrentState() {
+        if (mForeground != null) mForeground.jumpToCurrentState();
+    }
 
     @Override
     void drawableStateChanged() {
-        StateListDrawable stateListDrawable;
         if (mForeground != null && mForeground.isStateful()) {
             mForeground.setState(getView().getDrawableState());
         }

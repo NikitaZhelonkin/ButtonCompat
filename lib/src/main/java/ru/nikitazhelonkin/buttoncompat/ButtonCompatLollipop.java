@@ -1,6 +1,7 @@
 package ru.nikitazhelonkin.buttoncompat;
 
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -26,6 +27,16 @@ class ButtonCompatLollipop extends ButtonCompatImpl {
 
     @Override
     void onDrawOver(Canvas canvas) {
+        //do nothing
+    }
+
+    @Override
+    boolean verifyDrawable(Drawable drawable) {
+        return false;
+    }
+
+    @Override
+    void jumpDrawablesToCurrentState() {
         //do nothing
     }
 

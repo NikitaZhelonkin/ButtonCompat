@@ -2,7 +2,9 @@ package ru.nikitazhelonkin.buttoncompat;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
@@ -39,12 +41,12 @@ public class ButtonCompat extends AppCompatButton {
     public void draw(Canvas canvas) {
         getImpl().onDrawBehind(canvas);
         super.draw(canvas);
+        getImpl().onDrawOver(canvas);
 
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        getImpl().onDrawOver(canvas);
         super.onDraw(canvas);
     }
 
@@ -59,6 +61,17 @@ public class ButtonCompat extends AppCompatButton {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         getImpl().onSizeChanged();
+    }
+
+    @Override
+    protected boolean verifyDrawable(@NonNull Drawable who) {
+        return super.verifyDrawable(who) || getImpl().verifyDrawable(who);
+    }
+
+    @Override
+    public void jumpDrawablesToCurrentState() {
+        super.jumpDrawablesToCurrentState();
+        getImpl().jumpDrawablesToCurrentState();
     }
 
     @Override

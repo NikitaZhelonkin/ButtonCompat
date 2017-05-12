@@ -1,6 +1,7 @@
 package ru.nikitazhelonkin.buttoncompat;
 
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -25,6 +26,10 @@ abstract class ButtonCompatImpl {
     abstract void onDrawBehind(Canvas canvas);
 
     abstract void onDrawOver(Canvas canvas);
+
+    abstract boolean verifyDrawable(Drawable drawable);
+
+    abstract void jumpDrawablesToCurrentState();
 
     abstract void drawableStateChanged() ;
 
