@@ -7,13 +7,10 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.FrameLayout;
 
 /**
  * Created by nikita on 08.02.17.
  */
-//TODO enter/exit fade duration
 public class ButtonCompat extends AppCompatButton {
 
     private ButtonCompatImpl mImpl;
