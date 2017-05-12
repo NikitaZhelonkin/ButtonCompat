@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:enterFadeDuration="250"
-    android:exitFadeDuration="250">
+          android:enterFadeDuration="@android:integer/config_shortAnimTime"
+          android:exitFadeDuration="@android:integer/config_shortAnimTime">
 
     <item android:state_pressed="true">
         <inset xmlns:android="http://schemas.android.com/apk/res/android"
