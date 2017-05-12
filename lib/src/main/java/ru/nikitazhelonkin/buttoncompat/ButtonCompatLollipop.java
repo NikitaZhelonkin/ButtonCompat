@@ -15,7 +15,7 @@ class ButtonCompatLollipop extends ButtonCompatImpl {
     }
 
     @Override
-    void init(AttributeSet attrs) {
+    void init(AttributeSet attrs, int defStyleAttr) {
         //do nothing
     }
 

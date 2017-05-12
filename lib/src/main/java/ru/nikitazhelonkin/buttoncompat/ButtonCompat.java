@@ -18,21 +18,21 @@ public class ButtonCompat extends AppCompatButton {
 
     public ButtonCompat(Context context) {
         super(context);
-        init(context, null);
+        init(null, 0);
     }
 
     public ButtonCompat(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        init(attrs, 0);
     }
 
     public ButtonCompat(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(attrs, defStyleAttr);
     }
 
-    private void init(Context context, AttributeSet attrs) {
-        getImpl().init(attrs);
+    private void init(AttributeSet attrs, int defStyleAttr) {
+        getImpl().init(attrs, defStyleAttr);
     }
 
     @Override

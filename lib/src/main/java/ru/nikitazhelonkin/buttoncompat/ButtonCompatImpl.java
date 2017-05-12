@@ -20,7 +20,7 @@ abstract class ButtonCompatImpl {
         return mView;
     }
 
-    abstract void init(AttributeSet attrs);
+    abstract void init(AttributeSet attrs, int defStyleAttr);
 
     abstract void onDrawBehind(Canvas canvas);
 

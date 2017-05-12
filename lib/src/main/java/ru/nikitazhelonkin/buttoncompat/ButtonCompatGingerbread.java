@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -26,11 +27,11 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
     }
 
     @Override
-    void init(AttributeSet attrs) {
+    void init(AttributeSet attrs, int defStyleAttr) {
 
         Context context = getView().getContext();
 
-        TypedArray a = getView().getContext().obtainStyledAttributes(attrs, R.styleable.ButtonCompat);
+        TypedArray a = getView().getContext().obtainStyledAttributes(attrs, R.styleable.ButtonCompat, defStyleAttr, 0);
 
 
         mElevation = a.getDimensionPixelSize(R.styleable.ButtonCompat_compatElevation,
@@ -83,6 +84,7 @@ class ButtonCompatGingerbread extends ButtonCompatImpl {
 
     @Override
     void drawableStateChanged() {
+        StateListDrawable stateListDrawable;
         if (mForeground != null && mForeground.isStateful()) {
             mForeground.setState(getView().getDrawableState());
         }
