@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-</selector>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+       android:insetBottom="@dimen/button_compat_inset_vertical_material"
+       android:insetLeft="@dimen/button_compat_inset_horizontal_material"
+       android:insetRight="@dimen/button_compat_inset_horizontal_material"
+       android:insetTop="@dimen/button_compat_inset_vertical_material">
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+           android:shape="oval"
+           android:tint="?colorControlNormal">
+        <solid android:color="@android:color/white"/>
+    </shape>
+</inset>
