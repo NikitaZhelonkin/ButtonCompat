@@ -154,6 +154,7 @@ class ShadowDrawable extends Drawable {
     }
 
     private void drawShadow(Canvas canvas) {
+        if (mShadowSize == 0) return;
         final float edgeShadowTop = -mCornerRadius - mShadowSize;
         final float inset = mCornerRadius + mInsetShadow + mRawShadowSize / 2;
         final boolean drawHorizontalEdges = mCardBounds.width() - 2 * inset > 0;
@@ -211,6 +212,9 @@ class ShadowDrawable extends Drawable {
         } else {
             mCornerShadowPath.reset();
         }
+
+        if (mShadowSize == 0) return;
+
         mCornerShadowPath.setFillType(Path.FillType.EVEN_ODD);
         mCornerShadowPath.moveTo(-mCornerRadius, 0);
         mCornerShadowPath.rLineTo(-mShadowSize, 0);
