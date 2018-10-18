@@ -214,6 +214,7 @@ class ShadowDrawable extends Drawable {
         }
 
         if (mShadowSize == 0) return;
+        if (mCornerRadius + mShadowSize == 0) return;
 
         mCornerShadowPath.setFillType(Path.FillType.EVEN_ODD);
         mCornerShadowPath.moveTo(-mCornerRadius, 0);
